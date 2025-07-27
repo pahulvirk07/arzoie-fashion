@@ -1,0 +1,69 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function HomePage() {
+  return (
+    <div className="bg-yellow-50 text-brown-900 min-h-screen font-sans">
+      <header className="bg-yellow-300 text-brown-900 p-6 shadow-md">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-bold">Arzoie Fashion</h1>
+          <nav className="space-x-6">
+            <a href="#suits" className="hover:underline">Suits</a>
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <section className="relative h-[600px] bg-cover bg-center" style={{ backgroundImage: "url('/arzoie-homepage.jpg')" }}>
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h2 className="text-white text-5xl font-semibold drop-shadow-lg">Elevate Your Elegance</h2>
+        </div>
+      </section>
+
+      <main className="max-w-6xl mx-auto px-6 py-12">
+        <section id="suits" className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6">Suits</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((id) => (
+              <Card key={id} className="bg-yellow-100">
+                <img
+                  src={`/suit${id}.jpg`}
+                  alt={`Suit ${id}`}
+                  className="w-full h-72 object-cover rounded-t-2xl"
+                />
+                <CardContent className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Premium Punjabi Suit</h3>
+                  <p className="mb-2 text-sm">Available in Yellow, Maroon, Beige. Sizes XS - XL.</p>
+                  <p className="mb-4 font-medium">$120.00</p>
+                  <Button className="bg-yellow-500 text-brown-900 w-full hover:bg-yellow-600">
+                    Buy Now
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className="mb-12">
+          <h2 className="text-3xl font-semibold mb-4">About Us</h2>
+          <p className="text-lg leading-relaxed">
+            Arzoie Fashion blends traditional Indian craftsmanship with modern elegance. Every piece we create reflects heritage,
+            passion, and innovation — tailored for confident women around the globe.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2 className="text-3xl font-semibold mb-4">Contact</h2>
+          <p className="text-lg">Email: info@arzoie.com</p>
+          <p className="text-lg">Instagram: @arzoie_fashion</p>
+        </section>
+      </main>
+
+      <footer className="bg-yellow-300 text-brown-900 text-center p-4">
+        © 2025 Arzoie Fashion. All rights reserved.
+      </footer>
+    </div>
+  );
+}
